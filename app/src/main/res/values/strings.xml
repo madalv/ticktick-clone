@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TickTick Clone</string>
+    <string name="placeholder_list_name">List Name</string>
+    <string name="textview">TextView</string>
+    <string name="sort_action">Sort tasks</string>
+    <string name="hide_details">Hide details</string>
+    <string name="show_details">Show details</string>
 </resources>

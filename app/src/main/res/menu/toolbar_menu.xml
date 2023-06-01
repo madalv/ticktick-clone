@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:icon="@drawable/ic_overflow_menu"
+        android:id="@+id/action_more"
+        android:title=""
+        app:showAsAction="ifRoom">
+
+        <menu>
+            <item
+                android:id="@+id/action_sort"
+                android:title="@string/sort_action"
+                android:icon="@drawable/ic_sort"
+                app:showAsAction="ifRoom"/>
+            <item
+                android:id="@+id/action_toggle_details"
+                android:title="@string/show_details"
+                android:icon="@drawable/ic_show_details"
+                app:showAsAction="ifRoom"/>
+        </menu>
+
+    </item>
+</menu>
