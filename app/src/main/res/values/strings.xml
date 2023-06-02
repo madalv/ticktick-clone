@@ -8,4 +8,5 @@
     <string name="task_list">Task List</string>
     <string name="calendar">Calendar</string>
     <string name="stopwatch">Stopwatch</string>
+    <string name="add_task">Add Task</string>
 </resources>

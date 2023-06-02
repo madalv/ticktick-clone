@@ -10,7 +10,6 @@ import com.example.ticktickclone.databinding.StopwatchFragmentBinding
 class StopwatchFragment: Fragment() {
 
     private lateinit var binding: StopwatchFragmentBinding
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

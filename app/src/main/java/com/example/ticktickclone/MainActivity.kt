@@ -32,6 +32,11 @@ class MainActivity : AppCompatActivity() {
             Log.i(TAG, "Nav icon clicked")
         }
 
+        binding.addTaskFloatingBtn.setOnClickListener {
+            //todo: implement add task popup
+            Log.i(TAG, "Add task btn clicked")
+        }
+
         navController = Navigation.findNavController(this, R.id.main_activity_navhost_fragment)
         setupWithNavController(binding.bottomNavMenu, navController)
     }
