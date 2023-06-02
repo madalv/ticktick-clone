@@ -9,4 +9,5 @@
     <string name="calendar">Calendar</string>
     <string name="stopwatch">Stopwatch</string>
     <string name="add_task">Add Task</string>
+    <string name="task_name">Task name</string>
 </resources>
