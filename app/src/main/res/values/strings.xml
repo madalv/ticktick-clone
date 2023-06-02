@@ -5,4 +5,7 @@
     <string name="sort_action">Sort tasks</string>
     <string name="hide_details">Hide details</string>
     <string name="show_details">Show details</string>
+    <string name="task_list">Task List</string>
+    <string name="calendar">Calendar</string>
+    <string name="stopwatch">Stopwatch</string>
 </resources>

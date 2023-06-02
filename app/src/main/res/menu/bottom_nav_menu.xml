@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/task_list_fragment"
+        android:icon="@drawable/ic_task_list_fragment"
+        android:title="@string/task_list"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/calendar_fragment"
+        android:icon="@drawable/ic_calendar_fragment"
+        android:title="@string/calendar"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/stopwatch_fragment"
+        android:icon="@drawable/ic_stopwatch_timer"
+        android:title="@string/stopwatch"
+        app:showAsAction="ifRoom"/>
+
+</menu>

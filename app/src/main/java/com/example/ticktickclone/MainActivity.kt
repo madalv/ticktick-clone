@@ -1,18 +1,21 @@
 package com.example.ticktickclone
 
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.example.ticktickclone.databinding.ActivityMainBinding
 
 private const val TAG = "MainActivity"
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
 
     private var showDetails = true
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,11 +27,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 
-
         binding.toolbar.setNavigationOnClickListener {
             // todo: open side menu
             Log.i(TAG, "Nav icon clicked")
         }
+
+        navController = Navigation.findNavController(this, R.id.main_activity_navhost_fragment)
+        setupWithNavController(binding.bottomNavMenu, navController)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
