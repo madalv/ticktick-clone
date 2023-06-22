@@ -1,4 +1,4 @@
-package com.example.ticktickclone
+package com.example.ticktickclone.views
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ticktickclone.R
+import com.example.ticktickclone.models.CompletionStatus
+import com.example.ticktickclone.models.Task
 
 class TaskAdapter(
     private val tasks: List<Task>

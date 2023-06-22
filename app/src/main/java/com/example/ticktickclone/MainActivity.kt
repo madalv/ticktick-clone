@@ -7,7 +7,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.ui.NavigationUI.setupWithNavController
+import androidx.navigation.ui.NavigationUI
 import com.example.ticktickclone.databinding.ActivityMainBinding
 
 private const val TAG = "MainActivity"
@@ -25,12 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setSupportActionBar(binding.toolbar)
 
-        binding.toolbar.setNavigationOnClickListener {
-            // todo: open side menu
-            Log.i(TAG, "Nav icon clicked")
-        }
 
         binding.addTaskFloatingBtn.setOnClickListener {
             //todo: implement add task popup
@@ -38,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         navController = Navigation.findNavController(this, R.id.main_activity_navhost_fragment)
-        setupWithNavController(binding.bottomNavMenu, navController)
+        NavigationUI.setupWithNavController(binding.bottomNavMenu, navController)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -72,4 +67,3 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-

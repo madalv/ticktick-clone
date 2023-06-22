@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/task_list_fragment"
-        android:name="com.example.ticktickclone.TaskListFragment"
+        android:name="com.example.ticktickclone.views.TaskListFragment"
         android:label="task_list_fragment"
         tools:layout="@layout/task_list_fragment" />
 
     <fragment
         android:id="@+id/calendar_fragment"
-        android:name="com.example.ticktickclone.CalendarFragment"
+        android:name="com.example.ticktickclone.views.CalendarFragment"
         android:label="calendar_fragment"
         tools:layout="@layout/calendar_fragment" />
 
     <fragment
         android:id="@+id/stopwatch_fragment"
-        android:name="com.example.ticktickclone.StopwatchFragment"
+        android:name="com.example.ticktickclone.views.StopwatchFragment"
         android:label="stopwatch_fragment"
         tools:layout="@layout/stopwatch_fragment" />
 </navigation>
