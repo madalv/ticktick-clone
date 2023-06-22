@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/task_list_fragment">
+
+    <fragment
+        android:id="@+id/task_list_fragment"
+        android:name="com.example.ticktickclone.TaskListFragment"
+        android:label="task_list_fragment"
+        tools:layout="@layout/task_list_fragment" />
+
+    <fragment
+        android:id="@+id/calendar_fragment"
+        android:name="com.example.ticktickclone.CalendarFragment"
+        android:label="calendar_fragment"
+        tools:layout="@layout/calendar_fragment" />
+
+    <fragment
+        android:id="@+id/stopwatch_fragment"
+        android:name="com.example.ticktickclone.StopwatchFragment"
+        android:label="stopwatch_fragment"
+        tools:layout="@layout/stopwatch_fragment" />
+</navigation>
