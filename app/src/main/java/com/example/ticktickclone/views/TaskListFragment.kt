@@ -7,32 +7,50 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.ticktickclone.TickTickCloneApplication
 import com.example.ticktickclone.databinding.TaskListFragmentBinding
-import com.example.ticktickclone.models.Task
+import com.example.ticktickclone.viewmodels.TaskListViewModel
+import com.example.ticktickclone.viewmodels.TaskListViewModelFactory
 
 private const val TAG = "TaskListFragment"
 
 class TaskListFragment : Fragment() {
 
     private lateinit var binding: TaskListFragmentBinding
-    lateinit var tasks: ArrayList<Task>
+
+    private val vm: TaskListViewModel by viewModels {
+        TaskListViewModelFactory((activity?.application as TickTickCloneApplication).listRepository)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         binding = TaskListFragmentBinding.inflate(layoutInflater, container, false)
 
         (activity as AppCompatActivity).setSupportActionBar(binding.toolbar)
 
         val rvTasks = binding.taskListRv
-        tasks = Task.createTasks()
-        val adapter = TaskAdapter(tasks)
+        val adapter = TaskAdapter()
 
         rvTasks.adapter = adapter
         rvTasks.layoutManager = LinearLayoutManager(this.context)
+
+        vm.allLists.observe(viewLifecycleOwner) {
+            Log.i(TAG, "Lists updated $it")
+        }
+
+        vm.selectedList.observe(viewLifecycleOwner) { list ->
+            Log.i(TAG, "Selected list: $list")
+            list?.let {
+                adapter.submitList(list.tasks)
+                binding.toolbar.title = list.list.title
+            }
+        }
 
         binding.toolbar.setNavigationOnClickListener {
             // todo: open side menu
@@ -41,5 +59,4 @@ class TaskListFragment : Fragment() {
 
         return binding.root
     }
-
 }
