@@ -35,8 +35,9 @@ class TaskListViewModel(
     }
 }
 
-class TaskListViewModelFactory(private val repository: TaskListRepository) :
-    ViewModelProvider.Factory {
+class TaskListViewModelFactory(
+    private val repository: TaskListRepository
+) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(TaskListViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
@@ -45,4 +46,3 @@ class TaskListViewModelFactory(private val repository: TaskListRepository) :
         throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
-

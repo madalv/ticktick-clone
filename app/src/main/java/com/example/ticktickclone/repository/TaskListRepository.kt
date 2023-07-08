@@ -10,7 +10,9 @@ class TaskListRepository(private val listDao: TaskListDao) {
     val allLists: Flow<List<ListWithTasks>> = listDao.getAllLists()
     val firstList: Flow<ListWithTasks> = listDao.getFirst()
 
-    fun getList(listName: String): ListWithTasks = listDao.getList(listName)
+    suspend fun getListWithTasks(listId: Long): ListWithTasks = listDao.getListWithTasks(listId)
+
+    suspend fun getList(listId: Long): TaskList = listDao.getList(listId)
 
     suspend fun upsert(list: TaskList) = listDao.upsertTaskList(list)
 

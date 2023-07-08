@@ -13,7 +13,9 @@ import com.example.ticktickclone.R
 import com.example.ticktickclone.models.CompletionStatus
 import com.example.ticktickclone.models.Task
 
-class TaskAdapter : ListAdapter<Task, TaskAdapter.TaskViewHolder>(TASK_COMPARATOR) {
+class TaskAdapter(
+    private val onTaskClicked: (taskId: Long) -> Unit
+) : ListAdapter<Task, TaskAdapter.TaskViewHolder>(TASK_COMPARATOR) {
 
     companion object {
         private val TASK_COMPARATOR = object : DiffUtil.ItemCallback<Task>() {
@@ -30,7 +32,8 @@ class TaskAdapter : ListAdapter<Task, TaskAdapter.TaskViewHolder>(TASK_COMPARATO
     // provide direct reference to views within data item
     inner class TaskViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val checkbox: CheckBox = view.findViewById(R.id.task_item_checkbox)
-        val listName = view.findViewById<TextView>(R.id.task_item_list_name)
+        val listName: TextView = view.findViewById(R.id.task_item_list_name)
+        val root: View = view.rootView
     }
 
     // inflate layout, return view holder
@@ -45,7 +48,11 @@ class TaskAdapter : ListAdapter<Task, TaskAdapter.TaskViewHolder>(TASK_COMPARATO
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val task = getItem(position)
 
+        holder.root.setOnClickListener {
+            onTaskClicked(task.id)
+        }
         holder.checkbox.text = task.title
+        holder.listName.text = task.list.title
 
         holder.checkbox.setOnCheckedChangeListener { _, isChecked ->
             task.status = if (isChecked) CompletionStatus.DONE else CompletionStatus.NOT_MARKED

@@ -18,5 +18,4 @@ class StopwatchFragment : Fragment() {
         binding = StopwatchFragmentBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
-
 }

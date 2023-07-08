@@ -14,7 +14,8 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav_menu"
         app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/nav_graph" />
+        app:navGraph="@navigation/nav_graph"
+        tools:ignore="FragmentTagUsage" />
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -28,19 +29,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:menu="@menu/bottom_nav_menu" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_task_floating_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:clickable="true"
-        android:contentDescription="@string/add_task"
-        android:focusable="true"
-        app:backgroundTint="@color/purple_200"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_nav_menu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.954"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_add_task" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

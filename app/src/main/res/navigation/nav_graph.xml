@@ -22,4 +22,5 @@
         android:name="com.example.ticktickclone.views.StopwatchFragment"
         android:label="stopwatch_fragment"
         tools:layout="@layout/stopwatch_fragment" />
+
 </navigation>

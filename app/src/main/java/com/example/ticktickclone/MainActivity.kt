@@ -26,12 +26,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        binding.addTaskFloatingBtn.setOnClickListener {
-            //todo: implement add task popup
-            Log.i(TAG, "Add task btn clicked")
-        }
-
         navController = Navigation.findNavController(this, R.id.main_activity_navhost_fragment)
         NavigationUI.setupWithNavController(binding.bottomNavMenu, navController)
     }
@@ -45,7 +39,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
         return when (item.itemId) {
             R.id.action_sort -> {
                 // todo: sort popup

@@ -12,9 +12,8 @@ interface TaskDao {
     @Query("SELECT * FROM task_table")
     fun getAllTasks(): Flow<List<Task>>
 
-    // todo in case there's multiple tasks with the same name?
-    @Query("SELECT * FROM task_table WHERE title = :taskTitle AND list_id = :listId")
-    fun getTask(taskTitle: String, listId: Long): Flow<Task>
+    @Query("SELECT * FROM task_table WHERE task_id = :taskId")
+    suspend fun getTask(taskId: Long): Task
 
     @Upsert
     suspend fun upsertTask(task: Task)
