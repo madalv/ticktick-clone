@@ -16,7 +16,11 @@ import kotlinx.coroutines.launch
 
 private const val DB_NAME = "task_db"
 
-@Database(entities = [TaskList::class, Task::class], version = 1, exportSchema = false)
+@Database(
+    entities = [TaskList::class, Task::class],
+    version = 3,
+    exportSchema = true
+)
 abstract class TaskDatabase : RoomDatabase() {
     abstract fun taskDao(): TaskDao
     abstract fun taskListDao(): TaskListDao
@@ -36,10 +40,12 @@ abstract class TaskDatabase : RoomDatabase() {
 
         suspend fun populateDb(listDao: TaskListDao, taskDao: TaskDao) {
             taskDao.deleteAll()
-            listDao.upsertTaskList(TaskList("list1", 1))
-            listDao.upsertTaskList(TaskList("list1", 2))
-            taskDao.upsertTask(Task("task1_1", CompletionStatus.NOT_MARKED, 1))
-            taskDao.upsertTask(Task("task1_2", CompletionStatus.NOT_MARKED, 1))
+            val t1 = TaskList("list1", 1)
+            val t2 = TaskList("list1", 2)
+            listDao.upsertTaskList(t1)
+            listDao.upsertTaskList(t2)
+            taskDao.upsertTask(Task("task1_1", CompletionStatus.NOT_MARKED, 1, "sd", t1))
+            taskDao.upsertTask(Task("task1_2", CompletionStatus.NOT_MARKED, 1, "as", t1))
             Log.i("DB", "Populated db")
         }
     }
@@ -55,6 +61,7 @@ abstract class TaskDatabase : RoomDatabase() {
                     TaskDatabase::class.java,
                     DB_NAME
                 )
+                    .fallbackToDestructiveMigration()
                     .addCallback(TaskDataBaseCallback(scope))
                     .build()
 

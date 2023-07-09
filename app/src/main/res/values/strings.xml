@@ -10,4 +10,6 @@
     <string name="stopwatch">Stopwatch</string>
     <string name="add_task">Add Task</string>
     <string name="task_name">Task name</string>
+    <string name="task_title_hint">Give your task a title</string>
+    <string name="description_hint">Description</string>
 </resources>

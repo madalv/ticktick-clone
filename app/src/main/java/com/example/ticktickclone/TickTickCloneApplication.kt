@@ -9,10 +9,8 @@ import kotlinx.coroutines.SupervisorJob
 
 
 class TickTickCloneApplication : Application() {
-
-    val applicationScope = CoroutineScope(SupervisorJob())
-
-    val database by lazy { TaskDatabase.getDatabase(this, applicationScope) }
+    private val applicationScope = CoroutineScope(SupervisorJob())
+    private val database by lazy { TaskDatabase.getDatabase(this, applicationScope) }
     val listRepository by lazy { TaskListRepository(database.taskListDao()) }
     val taskRepository by lazy { TaskRepository(database.taskDao()) }
 }

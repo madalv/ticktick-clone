@@ -16,10 +16,13 @@ interface TaskListDao {
     @Query("SELECT * FROM tasklist_table")
     fun getAllLists(): Flow<List<ListWithTasks>>
 
-    // todo in case there's multiple lists with the same name?T
     @Transaction
-    @Query("SELECT * FROM tasklist_table WHERE title = :listTitle")
-    fun getList(listTitle: String): ListWithTasks
+    @Query("SELECT * FROM tasklist_table WHERE title = :listId")
+    suspend fun getListWithTasks(listId: Long): ListWithTasks
+
+    @WorkerThread
+    @Query("SELECT * FROM tasklist_table WHERE id = :listId")
+    suspend fun getList(listId: Long): TaskList
 
     @WorkerThread
     @Transaction

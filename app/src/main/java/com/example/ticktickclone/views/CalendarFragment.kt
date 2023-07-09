@@ -18,5 +18,4 @@ class CalendarFragment : Fragment() {
         binding = CalendarFragmentBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
-
 }
